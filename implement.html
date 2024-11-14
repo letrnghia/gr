@@ -1,267 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tab Toggle Example</title>
-  <style>
-    /* General Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Tab Example</title>
+    <style>
+        .tab-content {
+            display: none;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      color: #333;
-      padding: 0;
-      margin: 0;
-    }
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
 
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    /* Button Styles */
-    .tab-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #28a745; /* Màu xanh lá */
-      color: white;
-      font-size: 1rem;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      margin-bottom: 1rem;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    .tab-button:hover {
-      background-color: #218838;
-      transform: translateY(-4px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .tab-button:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Hidden content */
-    .tab-content {
-      display: none;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-top: 1rem;
-    }
-
-    /* Feature Section */
-    .feature-section {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-title {
-      font-size: 1.8rem;
-      color: #333;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .feature-description {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Form Styles */
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="email"] {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1.2rem;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus,
-    input[type="email"]:focus {
-      border-color: #28a745;
-      outline: none;
-    }
-
-    .submit-button {
-      width: 100%;
-      padding: 1rem;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .submit-button:hover {
-      background: #218838;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .submit-button:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Links */
-    a {
-      color: #28a745;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Group Diary Table */
-    .diary-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1.5rem;
-    }
-
-    .diary-table th,
-    .diary-table td {
-      padding: 1rem;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-
-    .diary-table th {
-      background-color: #f5f5f5;
-      font-weight: bold;
-    }
-
-    .diary-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  </style>
+        .tab-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Tab Button -->
-    <button class="tab-button" id="toggleTabButton">FUNCTION</button>
 
-    <!-- Tab Content Section (Initially hidden) -->
-    <div id="tabContent" class="tab-content">
-      <!-- Login Content -->
-      <div class="feature-section">
-        <h2 class="feature-title">Login function</h2>
-        <p class="feature-description">User authentication system</p>
-        <form>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-          <button type="submit" class="submit-button">Login</button>
-        </form>
-        <p>Don't have an account? <a href="#">Register here</a></p>
-      </div>
+<button class="tab-button" id="toggleTabButton">NV1: Login</button>
 
-      <!-- Register Content -->
-      <div class="feature-section">
-        <h2 class="feature-title">Register function</h2>
-        <p class="feature-description">New user registration system</p>
-        <form>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-          <button type="submit" class="submit-button">Register</button>
-        </form>
-        <p>Already have an account? <a href="#">Login here</a></p>
-      </div>
+<!-- Nội dung của tab sẽ hiển thị ngay khi trang tải -->
+<div id="loginTab" class="tab-content" style="display: block;">
+    <p>Welcome to the login tab! Please log in to access your account.</p>
+</div>
 
-      <!-- Forgot Password Content -->
-      <div class="feature-section">
-        <h2 class="feature-title">Forgot Password function</h2>
-        <p class="feature-description">Password recovery system</p>
-        <form>
-          <input type="email" placeholder="Email" required>
-          <button type="submit" class="submit-button">Send Reset Link</button>
-        </form>
-        <p>Remember your password? <a href="#">Back to login</a></p>
-      </div>
-
-      <!-- Group Diary Content -->
-      <div class="feature-section">
-        <h2 class="feature-title">Group Diary</h2>
-        <p class="feature-description">Weekly group activity log</p>
-        <div class="diary-header">
-          <h3>Week 1</h3>
-          <p class="date">Date: Oct 1 - Oct 7</p>
-        </div>
-        <table class="diary-table">
-          <thead>
-            <tr>
-              <th>Member</th>
-              <th>Task</th>
-              <th>Status</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Member 1</td>
-              <td>Login Function</td>
-              <td>Completed</td>
-              <td><a href="#">View</a></td>
-            </tr>
-            <tr>
-              <td>Member 2</td>
-              <td>Register Function</td>
-              <td>In Progress</td>
-              <td><a href="#">View</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript để toggle tab -->
-  <script>
-    document.getElementById('toggleTabButton').addEventListener('click', function() {
-      var tabContent = document.getElementById('tabContent');
-      if (tabContent.style.display === 'none' || tabContent.style.display === '') {
-        tabContent.style.display = 'block'; // Show the content
-      } else {
-        tabContent.style.display = 'none'; // Hide the content
-      }
+<script>
+    // Hiển thị nội dung tab mặc định khi trang tải
+    document.addEventListener("DOMContentLoaded", function() {
+        var loginTab = document.getElementById('loginTab');
+        loginTab.style.display = 'block';  // Đảm bảo nội dung tab hiển thị mặc định
     });
-  </script>
+
+    // Thêm sự kiện click cho nút để chuyển đổi trạng thái hiển thị của tab
+    document.getElementById('toggleTabButton').addEventListener('click', function() {
+        var loginTab = document.getElementById('loginTab');
+        // Kiểm tra nếu tab hiện tại đang ẩn
+        if (loginTab.style.display === 'none' || loginTab.style.display === '') {
+            loginTab.style.display = 'block';  // Hiển thị tab
+        } else {
+            loginTab.style.display = 'none';  // Ẩn tab
+        }
+    });
+</script>
+
 </body>
 </html>

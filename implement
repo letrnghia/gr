@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implement App</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Tab Styles */
+    .tab-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    .tab-button:hover {
+      background-color: #45a049;
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .feature-section {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .feature-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-demo {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 6px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .name-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background: #1557b0;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .link {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    /* Instruction text style */
+    .instruction {
+      color: #666;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Date style */
+    .date {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .submit-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Tab Buttons -->
+    <div>
+      <button class="tab-button" onclick="openTab('loginTab')">Login</button>
+      <button class="tab-button" onclick="openTab('registerTab')">Register</button>
+      <button class="tab-button" onclick="openTab('forgotPasswordTab')">Forgot Password</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="loginTab" class="tab-content">
+      <div class="feature-section">
+        <h2 class="feature-title">Login Function</h2>
+        <p class="feature-description">User authentication system</p>
+        <div class="feature-demo">
+          <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="submit-button">Login</button>
+          </form>
+          <p class="form-footer">Don't have an account? <a href="#" class="link">Register here</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="registerTab" class="tab-content">
+      <div class="feature-section">
+        <h2 class="feature-title">Register Function</h2>
+        <p class="feature-description">New user registration system</p>
+        <div class="feature-demo">
+          <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="submit-button">Register</button>
+          </form>
+          <p class="form-footer">Already have an account? <a href="#" class="link">Login here</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="forgotPasswordTab" class="tab-content">
+      <div class="feature-section">
+        <h2 class="feature-title">Forgot Password Function</h2>
+        <p class="feature-description">Password recovery system</p>
+        <div class="feature-demo">
+          <p class="instruction">Enter your email address and we'll send you a link to reset your password.</p>
+          <form>
+            <input type="email" placeholder="Email" required>
+            <button type="submit" class="submit-button">Send Reset Link</button>
+          </form>
+          <p class="form-footer">Remember your password? <a href="#" class="link">Back to login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      // Hide all tabs
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      // Show the clicked tab
+      const activeTab = document.getElementById(tabId);
+      activeTab.classList.add('active');
+    }
+
+    // Set default tab to Login
+    openTab('loginTab');
+  </script>
+</body>
+
+</html>

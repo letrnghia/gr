@@ -1,32 +1,96 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website IT - Project</title>
-  <link rel="stylesheet" href="project.css">
-  <link rel="stylesheet" href="implement.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      background-color: #f1f1f1;
+      margin-top: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .tab:hover {
+      background-color: #45a049;
+    }
+
+    .tab-content-wrapper {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      width: 80%;
+      border-radius: 5px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Styles for button inside Implement tab */
+    #login-message {
+      margin-top: 20px;
+      background-color: #e0ffe0;
+      padding: 15px;
+      border: 1px solid #4CAF50;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .button-implement {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .button-implement:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Header -->
-  <header class="main-header">
+  <header>
     <div class="logo">
       <img src="images/logo.png" width="180px" height="100px" alt="Logo IT Company">
-    </div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="group-diary.html">Group Diary</a></li>
-        <li><a href="project.html">Project</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="contact-info">
-      <p>Hotline: 1900 123 456</p>
-      <p>Email: Ourwebsite07@itcompany.com</p>
     </div>
   </header>
 
@@ -41,137 +105,63 @@
     <!-- Requirement Tab Content -->
     <div id="requirement" class="tab-content active">
       <h3>Requirement</h3>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Functional</th>
-            <th>Designer</th>
-            <th>Perfomer</th>
-            <th>Intended time</th>
-            <th>Current status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Web interface</td>
-            <td>Lương Hoài Sang</td>
-            <td>Lương Hoài Sang</td>
-            <td>2 weeks</td>
-            <td>Complete</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Contact</td>
-            <td>Huỳnh Thị Ngọc Trân</td>
-            <td>Huỳnh Thị Ngọc Trân</td>
-            <td>2 weeks</td>
-            <td>Complete</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Group dairy</td>
-            <td>Bùi Hà Duy Phong</td>
-            <td>Bùi Hà Duy Phong</td>
-            <td>2 weeks</td>
-            <td>Complete</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Project</td>
-            <td>Trần Đức Trí</td>
-            <td>Trần Đức Trí</td>
-            <td>2 weeks</td>
-            <td>Complete</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>About</td>
-            <td>Lê Trọng Nghĩa</td>
-            <td>Lê Trọng Nghĩa</td>
-            <td>2 weeks</td>
-            <td>Complete</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>Some content about the project requirements.</p>
     </div>
 
     <!-- Design Tab Content -->
-    <div class="tab-content" id="design">
+    <div id="design" class="tab-content">
       <h3>Design</h3>
-      <p>Describe the project's design process, including wireframes, mockups, and related documents.</p>
+      <p>Some content about the project design.</p>
     </div>
 
     <!-- Implement Tab Content -->
-    <div class="tab-content" id="implement">
+    <div id="implement" class="tab-content">
       <h3>Implement</h3>
-      <!-- Nội dung sẽ được load từ file implement.html -->
-      <div id="implement-content">
-        <p>Loading implementation content...</p>
+      <p>Content explaining the implementation of the project.</p>
+
+      <!-- NV1 Login Button -->
+      <button class="button-implement" onclick="showLoginMessage()">NV1: Login</button>
+
+      <!-- Login Message -->
+      <div id="login-message">
+        <p>This is the login section content that will be shown when you click the button.</p>
       </div>
     </div>
   </div>
 
   <script>
+    // JavaScript for managing tabs
     function openTab(tabName, event) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tab-content");
       for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        tabcontent[i].classList.remove("active");
+        tabcontent[i].style.display = "none"; // Hide all tab content
+        tabcontent[i].classList.remove("active"); // Remove active class
       }
 
       tablinks = document.getElementsByClassName("tab");
       for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
+        tablinks[i].classList.remove("active"); // Remove active class from tabs
       }
 
-      // Load external HTML file for the "Implement" tab
-      if (tabName === 'implement') {
-        // If the content is already loaded, skip reloading
-        if (!document.getElementById('implement').innerHTML.trim()) {
-          fetch('implement.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('implement-content').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading implement.html:', error));
-        }
-      }
+      document.getElementById(tabName).style.display = "block"; // Show the selected tab
+      document.getElementById(tabName).classList.add("active"); // Add active class to the selected tab
+      event.currentTarget.classList.add("active"); // Add active class to the clicked tab
+    }
 
-      // Show the selected tab content
-      document.getElementById(tabName).style.display = "block";
-      document.getElementById(tabName).classList.add("active");
-      event.currentTarget.classList.add("active");
+    // Show Login message when clicking NV1: Login button
+    function showLoginMessage() {
+      var messageDiv = document.getElementById('login-message');
+      if (messageDiv.style.display === 'none' || messageDiv.style.display === '') {
+        messageDiv.style.display = 'block'; // Show message
+      } else {
+        messageDiv.style.display = 'none'; // Hide message
+      }
     }
 
     // Show the default tab (requirement) by default
     document.getElementById('requirement').style.display = 'block';
   </script>
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="footer-info">
-      <h3>IT Solutions</h3>
-      <p>We bring breakthrough technology solutions to your business.</p>
-    </div>
-    <div class="footer-links">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="group-diary.html">Group Diary</a></li>
-        <li><a href="project.html">Project</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <p>Address: Nong Lam University, Linh Trung, Thu Duc City, Ho Chi Minh City</p>
-      <p>Hotline: 1900 123 456</p>
-      <p>Email: Ourwebsite07@itcompany.com</p>
-      <p>&copy; 2024 Group 07</p>
-    </div>
-  </footer>
 
 </body>
 

@@ -107,6 +107,23 @@
     <div class="tab-content" id="implement">
       <h3>Implement</h3>
       <p>Describe the project execution process, including coding, testing, and system deployment.</p>
+
+      <!-- Nội dung của tệp implement.html sẽ được đặt ở đây -->
+      <div class="implement-details">
+        <h4>Implementation Steps</h4>
+        <ul>
+          <li>Step 1: Setup project environment</li>
+          <li>Step 2: Create database schema</li>
+          <li>Step 3: Develop user authentication</li>
+          <li>Step 4: Implement frontend user interface</li>
+          <li>Step 5: Test the application</li>
+          <li>Step 6: Deploy the system</li>
+        </ul>
+        <h4>Testing</h4>
+        <p>Testing the application on different devices to ensure cross-browser compatibility and responsiveness.</p>
+        <h4>Deployment</h4>
+        <p>The final product will be deployed on a cloud server for scalability and performance.</p>
+      </div>
     </div>
   </div>
 
@@ -125,20 +142,6 @@
       tablinks = document.getElementsByClassName("tab");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
-      }
-
-      // Nếu là tab 'implement', tải nội dung từ file bên ngoài
-      if (tabName === 'implement') {
-        // Kiểm tra nếu nội dung chưa được tải
-        var implementContent = document.getElementById('implement');
-        if (!implementContent.innerHTML.trim()) {
-          fetch('implement.html')  // Tải tệp implement.html
-            .then(response => response.text())
-            .then(data => {
-              implementContent.innerHTML = data;
-            })
-            .catch(error => console.error('Error loading implement.html:', error));
-        }
       }
 
       // Hiển thị tab đã chọn và đánh dấu active

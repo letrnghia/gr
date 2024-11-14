@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Feature</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Header Footer</h2>
+        <ul class="menu">
+            <li><a href="#" onclick="showContent('home')">Home</a></li>
+            <li><a href="#" onclick="showContent('search')">Search Page</a></li>
+            <li><a href="#" onclick="showContent('song')">Song Page</a></li>
+            <li><a href="#" onclick="showContent('mv')">MV Page</a></li>
+            <li><a href="#" onclick="showContent('ranking')">Ranking Page</a></li>
+            <li><a href="#" onclick="showContent('song-details')">Song Details</a></li>
+            <li><a href="#" onclick="showContent('mv-details')">MV Details</a></li>
+            <li><a href="#" onclick="showContent('artist')">Artist Page</a></li>
+            <li><a href="#" onclick="showContent('login')">Login Page</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="home" class="content-section">Home Content</div>
+        <div id="search" class="content-section">Search Page Content</div>
+        <div id="song" class="content-section">Song Page Content</div>
+        <div id="mv" class="content-section">MV Page Content</div>
+        <div id="ranking" class="content-section">Ranking Page Content</div>
+        <div id="song-details" class="content-section">Song Details Content</div>
+        <div id="mv-details" class="content-section">MV Details Content</div>
+        <div id="artist" class="content-section">Artist Page Content</div>
+        <div id="login" class="content-section">Login Page Content</div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            var sections = document.getElementsByClassName("content-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            document.getElementById(section).style.display = "block";
+        }
+
+        // Display the first section by default
+        showContent('home');
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Toggle Example</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Liên kết với file CSS -->
+</head>
+<body>
+  <div class="container">
+    <!-- Tab Button -->
+    <button class="tab-button" id="toggleTabButton">NV1: Login</button>
+
+    <!-- Tab Content Section (Initially hidden) -->
+    <div id="tabContent" class="tab-content">
+      <!-- Login Content -->
+      <div class="feature-section">
+        <h2 class="feature-title">Login function</h2>
+        <p class="feature-description">User authentication system</p>
+        <form>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="submit-button">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#">Register here</a></p>
+      </div>
+
+      <!-- Register Content -->
+      <div class="feature-section">
+        <h2 class="feature-title">Register function</h2>
+        <p class="feature-description">New user registration system</p>
+        <form>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="submit-button">Register</button>
+        </form>
+        <p>Already have an account? <a href="#">Login here</a></p>
+      </div>
+
+      <!-- Forgot Password Content -->
+      <div class="feature-section">
+        <h2 class="feature-title">Forgot Password function</h2>
+        <p class="feature-description">Password recovery system</p>
+        <form>
+          <input type="email" placeholder="Email" required>
+          <button type="submit" class="submit-button">Send Reset Link</button>
+        </form>
+        <p>Remember your password? <a href="#">Back to login</a></p>
+      </div>
+
+      <!-- Group Diary Content -->
+      <div class="feature-section">
+        <h2 class="feature-title">Group Diary</h2>
+        <p class="feature-description">Weekly group activity log</p>
+        <div class="diary-header">
+          <h3>Week 1</h3>
+          <p class="date">Date: Oct 1 - Oct 7</p>
+        </div>
+        <table class="diary-table">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Member 1</td>
+              <td>Login Function</td>
+              <td>Completed</td>
+              <td><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td>Member 2</td>
+              <td>Register Function</td>
+              <td>In Progress</td>
+              <td><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle the tab content visibility
+    document.getElementById('toggleTabButton').addEventListener('click', function() {
+      var tabContent = document.getElementById('tabContent');
+      if (tabContent.style.display === 'none' || tabContent.style.display === '') {
+        tabContent.style.display = 'block'; // Show the content
+      } else {
+        tabContent.style.display = 'none'; // Hide the content
+      }
+    });
+  </script>
+</body>
+</html>

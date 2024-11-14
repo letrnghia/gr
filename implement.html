@@ -172,58 +172,12 @@
     .diary-table tr:nth-child(even) {
       background-color: #f9f9f9;
     }
-
-    .diary-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .diary-header h3 {
-      font-size: 1.6rem;
-      color: #333;
-    }
-
-    /* Date Style */
-    .date {
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        margin: 1rem auto;
-      }
-
-      .tab-button {
-        padding: 0.8rem 1.6rem;
-      }
-
-      .feature-section {
-        padding: 1rem;
-      }
-
-      form {
-        max-width: 100%;
-      }
-
-      .submit-button {
-        padding: 0.8rem;
-      }
-
-      .diary-table th,
-      .diary-table td {
-        padding: 0.8rem;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Tab Button -->
-    <button class="tab-button" id="toggleTabButton">Function</button>
+    <button class="tab-button" id="toggleTabButton">NV1: Login</button>
 
     <!-- Tab Content Section (Initially hidden) -->
     <div id="tabContent" class="tab-content">
@@ -298,8 +252,8 @@
     </div>
   </div>
 
+  <!-- JavaScript để toggle tab -->
   <script>
-    // Toggle the tab content visibility
     document.getElementById('toggleTabButton').addEventListener('click', function() {
       var tabContent = document.getElementById('tabContent');
       if (tabContent.style.display === 'none' || tabContent.style.display === '') {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 
 <head>
   <meta charset="UTF-8">
@@ -93,6 +93,7 @@
             <td>2 weeks</td>
             <td>Complete</td>
           </tr>
+          <!-- Add more rows as needed -->
         </tbody>
       </table>
     </div>
@@ -107,53 +108,31 @@
     <div class="tab-content" id="implement">
       <h3>Implement</h3>
       <p>Describe the project execution process, including coding, testing, and system deployment.</p>
-
-      <!-- Nội dung của tệp implement.html sẽ được đặt ở đây -->
-      <div class="implement-details">
-        <h4>Implementation Steps</h4>
-        <ul>
-          <li>Step 1: Setup project environment</li>
-          <li>Step 2: Create database schema</li>
-          <li>Step 3: Develop user authentication</li>
-          <li>Step 4: Implement frontend user interface</li>
-          <li>Step 5: Test the application</li>
-          <li>Step 6: Deploy the system</li>
-        </ul>
-        <h4>Testing</h4>
-        <p>Testing the application on different devices to ensure cross-browser compatibility and responsiveness.</p>
-        <h4>Deployment</h4>
-        <p>The final product will be deployed on a cloud server for scalability and performance.</p>
-      </div>
     </div>
   </div>
 
   <script>
     function openTab(tabName, event) {
       var i, tabcontent, tablinks;
-
-      // Ẩn tất cả nội dung của các tab
       tabcontent = document.getElementsByClassName("tab-content");
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
         tabcontent[i].classList.remove("active");
       }
 
-      // Xóa active từ tất cả các tab
       tablinks = document.getElementsByClassName("tab");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
       }
 
-      // Hiển thị tab đã chọn và đánh dấu active
       document.getElementById(tabName).style.display = "block";
       document.getElementById(tabName).classList.add("active");
       event.currentTarget.classList.add("active");
     }
 
-    // Hiển thị tab mặc định là 'requirement'
+    // Show the default tab (requirement) by default
     document.getElementById('requirement').style.display = 'block';
   </script>
-
   <!-- Footer -->
   <footer class="main-footer">
     <div class="footer-info">
@@ -163,10 +142,10 @@
     <div class="footer-links">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="group-diary.html">Group Diary</a></li>
-        <li><a href="project.html">Project</a></li>
-        <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="group-diary.html">Group Diary</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-contact">
@@ -176,6 +155,35 @@
       <p>&copy; 2024 Group 07</p>
     </div>
   </footer>
+
+<script>
+    function openTab(tabName, event) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // Load external HTML file for the "Implement" tab
+        if (tabName === 'implement') {
+            fetch('implement.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('implement').innerHTML = data)
+                .catch(error => console.error('Error loading implement.html:', error));
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
 </body>
 
 </html>

@@ -93,7 +93,6 @@
             <td>2 weeks</td>
             <td>Complete</td>
           </tr>
-          <!-- Add more rows as needed -->
         </tbody>
       </table>
     </div>
@@ -107,7 +106,10 @@
     <!-- Implement Tab Content -->
     <div class="tab-content" id="implement">
       <h3>Implement</h3>
-      <p>Describe the project execution process, including coding, testing, and system deployment.</p>
+      <!-- Nội dung sẽ được load từ file implement.html -->
+      <div id="implement-content">
+        <p>Loading implementation content...</p>
+      </div>
     </div>
   </div>
 
@@ -125,6 +127,20 @@
         tablinks[i].classList.remove("active");
       }
 
+      // Load external HTML file for the "Implement" tab
+      if (tabName === 'implement') {
+        // If the content is already loaded, skip reloading
+        if (!document.getElementById('implement').innerHTML.trim()) {
+          fetch('implement.html')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('implement-content').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading implement.html:', error));
+        }
+      }
+
+      // Show the selected tab content
       document.getElementById(tabName).style.display = "block";
       document.getElementById(tabName).classList.add("active");
       event.currentTarget.classList.add("active");
@@ -133,6 +149,7 @@
     // Show the default tab (requirement) by default
     document.getElementById('requirement').style.display = 'block';
   </script>
+
   <!-- Footer -->
   <footer class="main-footer">
     <div class="footer-info">
@@ -142,10 +159,10 @@
     <div class="footer-links">
       <ul>
         <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="group-diary.html">Group Diary</a></li>
-            <li><a href="project.html">Project</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="group-diary.html">Group Diary</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-contact">
@@ -155,34 +172,6 @@
       <p>&copy; 2024 Group 07</p>
     </div>
   </footer>
-
-<script>
-    function openTab(tabName, event) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-
-        tablinks = document.getElementsByClassName("tab");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-
-        // Load external HTML file for the "Implement" tab
-        if (tabName === 'implement') {
-            fetch('implement.html')
-                .then(response => response.text())
-                .then(data => document.getElementById('implement').innerHTML = data)
-                .catch(error => console.error('Error loading implement.html:', error));
-        }
-
-        document.getElementById(tabName).style.display = "block";
-        document.getElementById(tabName).classList.add("active");
-        event.currentTarget.classList.add("active");
-    }
-</script>
 
 </body>
 
